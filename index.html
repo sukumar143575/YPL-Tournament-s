@@ -59,7 +59,7 @@
             transform: scale(1);
         }
 
-         @media (max-width: 600px) {
+        @media (max-width: 600px) {
             table {
                 font-size: 14px;
             }
@@ -94,17 +94,28 @@
                 <th>Match</th>
             </tr>
         </table>
+        
+        <h2>Click On Logo's To See The Player's List</h2>
+        <table id="TeamTable">
+            <tr>
+                <th>match_No</th>
+                <th>Team_Name</th>
+                <th>Logo</th>
+            </tr>
+        </table>
     </div>
+
+   
 
     <script>
         // IPL 2025 Match Data
         const matches = [
-            { matchNo: 1, date: "28/03/2025", time: "7:30 PM", team1: "egale boy's.jpg", team2: "KGM boy;s.jpg" },
-            { matchNo: 2, date: "28/03/2025", time: "7:30 PM", team1: "Thunders.webp", team2: "Royal warrior 2.webp" },
-            { matchNo: 3, date: "28/03/2025", time: "3:30 PM", team1: "KGM boy;s.jpg", team2: "Thunders.webp" },
-            { matchNo: 4, date: "28/03/2025", time: "7:30 PM", team1: "Royal warrior 2.webp", team2: "egale boy's.jpg" },
-            { matchNo: 5, date: "28/03/2025", time: "7:30 PM", team1: "egale boy's.jpg", team2: "Thunders.webp" },
-            { matchNo: 6, date: "29/03/2025", time: "7:30 PM", team1: "KGM boy;s.jpg", team2: "Royal warrior 2.webp" },
+            { matchNo: 1, date: "28/03/2025", time: "8:30 AM", team1: "egale boy's.jpg", team2: "KGM boy;s.jpg" },
+            { matchNo: 2, date: "28/03/2025", time: "11:00Am", team1: "Thunders.webp", team2: "Royal warrior 2.webp" },
+            { matchNo: 3, date: "28/03/2025", time: "01:00PM", team1: "KGM boy;s.jpg", team2: "Thunders.webp" },
+            { matchNo: 4, date: "28/03/2025", time: "03:00PM", team1: "Royal warrior 2.webp", team2: "egale boy's.jpg" },
+            { matchNo: 5, date: "28/03/2025", time: "5:00 PM", team1: "egale boy's.jpg", team2: "Thunders.webp" },
+            { matchNo: 6, date: "29/03/2025", time: "7:30 PM", team1: "egale boy's.jpg", team2: "Royal warrior 2.webp" },
             { matchNo: 7, date: "29/03/2025", time: "7:30 PM", team1: "egale boy's.jpg", team2: "Thunders.webp" },
             { matchNo: 8, date: "29/03/2025", time: "3:30 PM", team1: "Royal warrior 2.webp", team2: "KGM boy;s.jpg" },
             { matchNo: 9, date: "29/03/2025", time: "7:30 PM", team1: "egale boy's.jpg", team2: "Thunders.webp" },
@@ -125,19 +136,62 @@
                     <td>${match.date}</td>
                     <td>${match.time}</td>
                     <td>
-                        <img src="${match.team1}" class="team-logo" style="animation: fadeIn 0.5s ${index * 0.1}s forwards;">
+                         <a href="team1.html?team=${encodeURIComponent(match.team1)}">
+                        <img src="${match.team1}" class="team-logo" style="animation: fadeIn 0.5s ${index * 0.1}s forwards;"></a>
                         VS
+                        <a href="team2.html?team=${encodeURIComponent(match.team2)}">
                         <img src="${match.team2}" class="team-logo" style="animation: fadeIn 0.5s ${index * 0.1 + 0.1}s forwards;">
                     </td>
                 `;
 
                 table.appendChild(row);
             });
+
         }
 
         // Call function to populate schedule
         populateSchedule();
-    </script>
 
+        const team =[
+            { matchNo:1,Team_Name:"Egale Boy's",teamlogo:"egale boy's.jpg" },
+            { matchNo:1,Team_Name:"KGM Boy's",teamlogo:"KGM boy;s.jpg" },
+            { matchNo:1,Team_Name:"Thunders",teamlogo:"Thunders.webp" },
+            { matchNo:1,Team_Name:"Royal Warriors",teamlogo:"Royal warrior 2.webp" }
+
+        ];
+        function poplateTeam(){
+            const table = document.getElementById("TeamTable");
+
+            team.forEach((Logo, index) => {
+                const suku = document.createElement("tr");
+
+                suku.innerHTML = `
+                    <td>${Logo.matchNo}</td>
+                    <td>${Logo.Team_Name}</td>
+                    
+                    <td>
+                        <a href="team1.html?team=${encodeURIComponent(Logo.teamlogo)}">
+                        <img src="${Logo.teamlogo}" class="team-logo" style="animation: fadeIn 0.5s ${index * 0.1}s forwards;"></a>
+                    </td>
+                        
+                `;
+
+                table.appendChild(suku);
+            });
+
+        }
+
+        poplateTeam();
+    </script>
+<!-- const matches = [
+    { 
+        matchNo: 1, 
+        date: "28/03/2025", 
+        time: "7:30 PM", 
+        team1: '<a href="team1.html"><img src="egale_boys.jpg" alt="Egale Boys" /></a>', 
+        team2: '<a href="team2.html"><img src="KGM_boys.jpg" alt="KGM Boys" /></a>' 
+    }
+];
+ -->
 </body>
 </html>

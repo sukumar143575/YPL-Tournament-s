@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.team-selection, .team-summary {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.players-list1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    gap: 15px;
+    width: auto;
+    background-color: #2c3e50;
+}
+
+.players-list2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+    width: auto;
+    background-color: #2c3e50;
+}
+
+.player {
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    width: auto;
+}
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#team-list {
+    list-style-type: none;
+    margin: 10px 0;
+    color: navy;
+    font-weight: 600;
+}
+
+#team-list li {
+    /* display: inline-block; */
+    background-color: #ecf0f1;
+    margin: 5px 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#team-list li:hover{
+    color: white;
+    background-color: #2c3e50;
+    cursor: pointer;
+}
